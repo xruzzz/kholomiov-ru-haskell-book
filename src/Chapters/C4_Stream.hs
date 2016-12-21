@@ -1,12 +1,15 @@
 {-# LANGUAGE UnicodeSyntax #-}
 module Chapters.C4_Stream
     (
-        constStream
+        constStream,
+        Stream(..),
+        smap,
+        zipWithS
     ) where
 import Number.Nat
 import qualified Prelude as P
 import Prelude
-
+infixr 5 :&
 data Stream a = a :& Stream a
 {-    deriving Show-}
 
@@ -49,8 +52,8 @@ sfilter f (x :& xs ) = if (f x) then (x :& sfilter f xs) else (sfilter f xs)
 zip :: Stream a -> Stream b -> Stream (a, b)
 zip (x :& xs ) (y :& ys ) = (x, y) :& Chapters.C4_Stream.zip xs ys
 
-zipWith :: (a -> b -> c) -> Stream a -> Stream b -> Stream c 
-zipWith f (x :& xs ) (y :& ys ) = (f x y) :& (Chapters.C4_Stream.zipWith f xs ys)
+zipWithS :: (a -> b -> c) -> Stream a -> Stream b -> Stream c 
+zipWithS f (x :& xs ) (y :& ys ) = (f x y) :& (Chapters.C4_Stream.zipWithS f xs ys)
 
 iterate :: (a -> a) -> a -> Stream a
 iterate f x = f x :& Chapters.C4_Stream.iterate f (f x)

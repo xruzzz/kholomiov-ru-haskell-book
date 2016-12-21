@@ -26,7 +26,6 @@ class (Eq a, Show a) ⇒ Prod a where
 class (Show a) ⇒ Conv a where
   fromInteger ∷ Integer → a
 
-
 instance Sum ℕ where
   (+) a I' = I a 
   (+) a (I b) = I (a Number.Nat.+ b)
