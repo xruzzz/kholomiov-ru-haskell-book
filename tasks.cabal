@@ -16,10 +16,13 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:
+                      Kleisli,
                       Number.Nat,
-                      Chapters.C4,
-                      Chapters.C4_3areas,
-                      Chapters.C5_HOF
+                      Chapters.C4.Functions,
+                      Chapters.C4.T3areas,
+                      Chapters.C5.HOF
+                      Chapters.C6.State
+                      Chapters.C6.Reader
   build-depends:
                         base >= 4.7 && < 5,
                         base-unicode-symbols

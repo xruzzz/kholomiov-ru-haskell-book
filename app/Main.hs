@@ -1,7 +1,7 @@
 {-# LANGUAGE UnicodeSyntax #-}
 module Main where
 import Number.Nat
-import qualified Chapters.C4 as CC4 (predd)
+import qualified Chapters.C4.Functions as CC4 (predd)
 
 main ∷ IO ()
 main = do
